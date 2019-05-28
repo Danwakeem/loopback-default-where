@@ -2,19 +2,21 @@ const sandbox = require("sinon").createSandbox();
 const index = require("./index");
 
 describe("index", () => {
-  let Model, observe, next;
+  let Model;
+  let observe;
+  let next;
   beforeEach(() => {
     next = sandbox.spy();
     Model = {
       observe: (key, cb) => {
         observe = sandbox.spy(cb);
-      },
+      }
     };
   });
 
   afterEach(() => sandbox.restore());
 
-  it('should ignore options if options are not set', () => {
+  it("should ignore options if options are not set", () => {
     index(Model);
     const ctx = {};
     observe(ctx, next);
@@ -23,7 +25,7 @@ describe("index", () => {
     sandbox.assert.calledOnce(next);
   });
 
-  it('should not error on empty object', () => {
+  it("should not error on empty object", () => {
     index(Model, {});
     const ctx = {};
     observe(ctx, next);
@@ -32,8 +34,8 @@ describe("index", () => {
     sandbox.assert.calledOnce(next);
   });
 
-  it('should set query options', () => {
-    index(Model, {limit: 10});
+  it("should set query options", () => {
+    index(Model, { limit: 10 });
     const ctx = {};
     observe(ctx, next);
 
@@ -43,36 +45,36 @@ describe("index", () => {
     sandbox.assert.calledOnce(next);
   });
 
-  it('should add options to query', () => {
-    index(Model, {limit: 10});
-    const ctx = {query: {offset: 10}};
+  it("should add options to query", () => {
+    index(Model, { limit: 10 });
+    const ctx = { query: { offset: 10 } };
     observe(ctx, next);
 
     ctx.query.should.deepEqual({
       limit: 10,
-      offset: 10,
+      offset: 10
     });
     sandbox.assert.calledOnce(next);
   });
 
-  it('should not override query keys with options', () => {
-    index(Model, {limit: 100});
-    const ctx = {query: {limit: 10}};
+  it("should not override query keys with options", () => {
+    index(Model, { limit: 100 });
+    const ctx = { query: { limit: 10 } };
     observe(ctx, next);
 
     ctx.query.should.deepEqual({
-      limit: 10,
+      limit: 10
     });
     sandbox.assert.calledOnce(next);
   });
 
-  it('should add a query if it does not exist', () => {
-    index(Model, {limit: 100});
+  it("should add a query if it does not exist", () => {
+    index(Model, { limit: 100 });
     const ctx = {};
     observe(ctx, next);
 
     ctx.query.should.deepEqual({
-      limit: 100,
+      limit: 100
     });
     sandbox.assert.calledOnce(next);
   });
