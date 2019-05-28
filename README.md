@@ -30,7 +30,7 @@ Then add the mix in to your `model.json` file
 ## Options
 > I know there is supposed to be a way to do this through the loopback scope but it had some strange behavior so I just made a mixin to fix this
 
-You can put whatever where filter you want 
+You can put whatever where filter you want in the mixin opitons
 ```json
 "mixins": {
   "DefaultFilter": {
