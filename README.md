@@ -1,4 +1,4 @@
-# Loopback Search Endpoint
+# Loopback Default Filter
 This loopback middleware replaces the default `GET /` endpoint with something that is a little more search friendly.
 
 ## Useage
