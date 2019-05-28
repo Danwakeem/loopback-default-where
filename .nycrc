@@ -1,0 +1,7 @@
+{
+  "exclude": [
+    "coverage/**",
+    "index.js",
+    "src/*.spec.js"
+  ]
+}
