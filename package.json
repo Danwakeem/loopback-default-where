@@ -1,16 +1,16 @@
 {
-  "name": "loopback-default-where",
+  "name": "loopback-default-filter",
   "version": "1.0.0",
   "description": "Loopback 3 default where mixin",
-  "main": "index.js",
+  "main": "DefaultFilter.js",
   "scripts": {
-    "test": "nyc -r lcov -r text -r html mocha -r should src/*.spec.js",
+    "test": "nyc -r lcov -r text -r html mocha -r should *.spec.js",
     "lint": "eslint .",
     "format": "prettier-eslint --write '**/*.js'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Danwakeem/loopback-default-where.git"
+    "url": "git+https://github.com/Danwakeem/loopback-default-filter.git"
   },
   "keywords": [
     "loopback",
@@ -20,9 +20,9 @@
   "author": "Danwakeem",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Danwakeem/loopback-default-where/issues"
+    "url": "https://github.com/Danwakeem/loopback-default-filter/issues"
   },
-  "homepage": "https://github.com/Danwakeem/loopback-default-where#readme",
+  "homepage": "https://github.com/Danwakeem/loopback-default-filter#readme",
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
