@@ -1,7 +1,7 @@
 const sandbox = require("sinon").createSandbox();
-const index = require("./index");
+const defaultWhere = require("./DefaultWhere");
 
-describe("index", () => {
+describe("defaultWhere", () => {
   let Model;
   let observe;
   let next;
@@ -17,7 +17,7 @@ describe("index", () => {
   afterEach(() => sandbox.restore());
 
   it("should ignore options if options are not set", () => {
-    index(Model);
+    defaultWhere(Model);
     const ctx = {};
     observe(ctx, next);
 
@@ -26,7 +26,7 @@ describe("index", () => {
   });
 
   it("should not error on empty object", () => {
-    index(Model, {});
+    defaultWhere(Model, {});
     const ctx = {};
     observe(ctx, next);
 
@@ -35,7 +35,7 @@ describe("index", () => {
   });
 
   it("should set query options", () => {
-    index(Model, { limit: 10 });
+    defaultWhere(Model, { limit: 10 });
     const ctx = {};
     observe(ctx, next);
 
@@ -46,7 +46,7 @@ describe("index", () => {
   });
 
   it("should add options to query", () => {
-    index(Model, { limit: 10 });
+    defaultWhere(Model, { limit: 10 });
     const ctx = { query: { offset: 10 } };
     observe(ctx, next);
 
@@ -58,7 +58,7 @@ describe("index", () => {
   });
 
   it("should not override query keys with options", () => {
-    index(Model, { limit: 100 });
+    defaultWhere(Model, { limit: 100 });
     const ctx = { query: { limit: 10 } };
     observe(ctx, next);
 
@@ -69,7 +69,7 @@ describe("index", () => {
   });
 
   it("should add a query if it does not exist", () => {
-    index(Model, { limit: 100 });
+    defaultWhere(Model, { limit: 100 });
     const ctx = {};
     observe(ctx, next);
 
