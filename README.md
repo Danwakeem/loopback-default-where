@@ -1,5 +1,5 @@
 # Loopback Default Filter
-This loopback middleware replaces the default `GET /` endpoint with something that is a little more search friendly.
+This loopback middleware adds a default filter to requests that accept a query
 
 ## Useage
 
