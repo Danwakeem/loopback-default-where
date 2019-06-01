@@ -1,4 +1,8 @@
 # Loopback Default Filter
+
+[![Build Status](https://travis-ci.com/Danwakeem/loopback-default-filter.svg?branch=master)](https://travis-ci.com/Danwakeem/loopback-default-filter)
+[![Coverage Status](https://coveralls.io/repos/github/Danwakeem/loopback-default-filter/badge.svg?branch=master)](https://coveralls.io/github/Danwakeem/loopback-default-filter?branch=master)
+
 This loopback middleware adds a default filter to requests that accept a query
 
 ## Useage
